@@ -1,0 +1,5 @@
+./.gitignore
+./.vscode
+./django-htmx.code-workspace
+./venv
+./generador_django.py
