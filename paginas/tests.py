@@ -1,10 +1,24 @@
 from django.test import SimpleTestCase
-from django.urls import reverse, resolve
+from django.urls import reverse
 
 
 
 class AboutPageTest(SimpleTestCase):
-    def test_existe_ruta(self):
+    def setUp(self):
+        url = reverse('pages:about')
+        self.response = self.client.get(url)
+
+    def test_url_about(self):
+        self.assertEqual(self.response.status_code, 200)
+
+    def test_template_about(self):
+        self.assertTemplateUsed(self.response, 'paginas/about.html')
+        self.assertContains(self.response, '<h1>Sobre mi</h1>')
+        self.assertNotContains(self.response, 'Curso de Django')
+
+
+
+    '''def test_existe_ruta(self):
         response = self.client.get('/pages/about/')
         self.assertEqual(response.status_code, 200)
 
@@ -21,7 +35,7 @@ class AboutPageTest(SimpleTestCase):
         response = self.client.get(reverse('pages:about'))
         self.assertNotContains(response, 'Curso de Django')
 
-    '''def test_about_page_template(self):
+    def test_about_page_template(self):
         response = self.client.get('/about/')
         self.assertTemplateUsed(response, 'about.html')
 
