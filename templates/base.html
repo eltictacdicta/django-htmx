@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.minty.css' %}">
 </head>
 <body>
-    Contenido en la plantialla base<br>
+    <!-- Barra de navegación -->
+    <div class="bs-docs-section clearfix">
+        <div class="row">
+            <div class="bs-component">
+                {% include "menu.html" %}   
+            </div>
+        </div>
+      </div>
     {% block contenido %}
         Contenido por defecto
     {% endblock %}
