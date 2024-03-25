@@ -12,13 +12,15 @@
     <div class="bs-docs-section clearfix">
         <div class="row">
             <div class="bs-component">
-                {% include "menu.html" %}   
+                {% include "fragments/menu.html" %}   
             </div>
         </div>
       </div>
     {% block contenido %}
         Contenido por defecto
     {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
