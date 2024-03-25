@@ -5,7 +5,10 @@
 {% block contenido %}
     {% include "fragments/titulo.html"  with titulo="Inicio" %}
         {% include "fragments/card_start.html" with header="Bienvenidos" %}
-            <h4 class="card-title">Success card title</h4>
+            <h4 class="card-title">{% if user.is_authenticated %} Hola {{ user.email }} {% else %}
+                <a href="{% url 'usuarios:login' %}">Inicia sesión</a> {% comment %} o <a href="{% url 'registro' %}">Regístrate</a>  {% endcomment %}
+                {% endif %}
+            </h4>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         {% include "fragments/card_finish.html" %}
 {% endblock %}
